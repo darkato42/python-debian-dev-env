@@ -1,0 +1,22 @@
+{
+    "name": "Debian Python 3.10 Dev Environment",
+    "image": "python:3.10-buster",
+    "customizations": {
+        "vscode": {
+            "settings": { 
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ]
+        }
+    },
+    "forwardPorts": [],
+    "postCreateCommand": "apt-get update && apt-get install -y --no-install-recommends build-essential && pip install --upgrade pip",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind"
+    ],
+    "remoteUser": "root",
+    "workspaceFolder": "/app"
+}
