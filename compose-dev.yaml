@@ -1,0 +1,8 @@
+services:
+  dev-environment:
+    image: python:3.10-buster
+    container_name: debian-dev
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c "apt-get update && apt-get install -y --no-install-recommends build-essential && pip install --upgrade pip && pip install -r requirements.txt && /bin/bash"
